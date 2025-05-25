@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>簡易計算機</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        input, button { margin: 5px; padding: 10px; font-size: 16px; }
+        #result { margin-top: 10px; font-size: 18px; font-weight: bold; }
+    </style>
 </head>
 <body>
-    <h1>LOLO HomePage</h1>
+    <h1>簡易計算機</h1>
+
+    <input type="number" id="num1" placeholder="輸入第一個數字">
+    <input type="number" id="num2" placeholder="輸入第二個數字">
+    <br>
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">*</button>
+    <button onclick="calculate('/')">/</button>
+
+    <div id="result">結果: </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
