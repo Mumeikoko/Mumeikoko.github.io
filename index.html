@@ -1,29 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>簡易計算機</title>
+    <title>抽獎網址管理</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        input, button { margin: 5px; padding: 10px; font-size: 16px; }
-        #result { margin-top: 10px; font-size: 18px; font-weight: bold; }
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        #urlInputContainer { margin-bottom: 20px; }
+        #urlInput { width: 80%; padding: 10px; margin-right: 10px; font-size: 16px; }
+        #addUrlButton { padding: 10px; font-size: 16px; }
+        .date-group { margin-bottom: 20px; border: 1px solid #ccc; padding: 10px; }
+        .date-header { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+        .url-entry { margin-bottom: 15px; padding: 10px; border: 1px solid #eee; }
+        .url-link { cursor: pointer; color: blue; text-decoration: underline; margin-right: 10px; }
+        .url-link.clicked { text-decoration: line-through; color: gray; }
+        .checkmark { color: green; font-weight: bold; }
+        .comment-box { width: 95%; margin-top: 10px; padding: 5px; }
     </style>
 </head>
 <body>
-    <h1>簡易計算機</h1>
+    <h1>抽獎網址管理</h1>
 
-    <input type="number" id="num1" placeholder="輸入第一個數字">
-    <input type="number" id="num2" placeholder="輸入第二個數字">
-    <br>
-    <button onclick="calculate('+')">+</button>
-    <button onclick="calculate('-')">-</button>
-    <button onclick="calculate('*')">*</button>
-    <button onclick="calculate('/')">/</button>
-    <button onclick="calculate('^')">^</button>
+    <div id="urlInputContainer">
+        <input type="text" id="urlInput" placeholder="輸入抽獎網址">
+        <button id="addUrlButton">新增網址</button>
+    </div>
 
-    <div id="result">結果: </div>
+    <div id="entriesContainer">
+        <!-- 網址列表將在這裡顯示 -->
+    </div>
 
     <script src="script.js"></script>
 </body>
