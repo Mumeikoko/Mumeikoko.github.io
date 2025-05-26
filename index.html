@@ -16,3 +16,20 @@
       .catch(error => alert("送出失敗：" + error));
   });
 </script>
+<ul id="messages"></ul>
+
+<script>
+  const apiURL = 'https://script.google.com/macros/s/你的網址/exec';
+
+  fetch(apiURL)
+    .then(response => response.json())
+    .then(data => {
+      const ul = document.getElementById("messages");
+      data.forEach(msg => {
+        const li = document.createElement("li");
+        li.textContent = `[${msg.time}] ${msg.name}：${msg.message}`;
+        ul.appendChild(li);
+      });
+    })
+    .catch(err => console.error("讀取留言失敗：", err));
+</script>
