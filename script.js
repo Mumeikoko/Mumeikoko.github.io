@@ -27,11 +27,11 @@ function calculate(operator) {
             if (num2 === 0) {
                 resultDiv.textContent = '結果: 除數不能為零';
                 return;
-            }
-            result = num1 / num2;
-            break;
         case '^':
             result = Math.pow(num1, num2);
+            break;
+            }
+            result = num1 / num2;
             break;
         default:
             resultDiv.textContent = '結果: 無效的操作符';
