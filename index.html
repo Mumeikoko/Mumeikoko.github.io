@@ -1,37 +1,18 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>抽獎網址管理</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1 { text-align: center; }
-        #urlInputContainer { margin-bottom: 20px; }
-        #urlInput { width: 80%; padding: 10px; margin-right: 10px; font-size: 16px; }
-        #addUrlButton { padding: 10px; font-size: 16px; }
-        .date-group { margin-bottom: 20px; border: 1px solid #ccc; padding: 10px; }
-        .date-header { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
-        .url-entry { margin-bottom: 15px; padding: 10px; border: 1px solid #eee; }
-        .url-link { cursor: pointer; color: blue; text-decoration: underline; margin-right: 10px; }
-        .url-link.clicked { text-decoration: line-through; color: gray; }
-        .checkmark { color: green; font-weight: bold; }
-        .comment-box { width: 95%; margin-top: 10px; padding: 5px; }
-    </style>
-</head>
-<body>
-    <h1>抽獎網址管理</h1>
+<form id="myForm">
+  <input name="name" placeholder="你的名字"><br>
+  <input name="message" placeholder="留言內容"><br>
+  <button type="submit">送出留言</button>
+</form>
 
-    <div id="urlInputContainer">
-        <input type="text" id="urlInput" placeholder="輸入抽獎網址">
-        <button id="addUrlButton">新增網址</button>
-    </div>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbz30Xj1MhmTTDeJYklaa8hG9gfSNZshsm6JBDfWpG4SFcGdm_qUY1_wz4TuxXJfOxuy4A/exec'; // 換成你的網址
+  const form = document.getElementById('myForm');
 
-    <div id="entriesContainer">
-        <!-- 網址列表將在這裡顯示 -->
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(response => alert("留言已送出！"))
+      .catch(error => alert("送出失敗：" + error));
+  });
+</script>
